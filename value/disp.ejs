@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+	<style>
+		.table {
+			  display: table;         
+			  width: auto;              
+
+		}
+.table-row {
+		  display: table-row;
+		  width: auto;
+		  clear: both;
+  
+}
+.table-cell {
+	  float: left; /* fix for  buggy browsers */
+	  display: table-column;         
+	  width: 100px;         
+	border:1px solid black;
+  }
+	</style>
+	</head>
+	<body>
+	<a href="/event-add">Insert new element </a></br></br>
+	<div class="table">
+		<div class="table-row">
+			<div class="table-cell"><strong>ID</strong></div>
+			<div class="table-cell"><strong>Marks1</strong></div>
+			<div class="table-cell"><strong>Marks2</strong></div>
+			<div class="table-cell"><strong>Marks3</strong></div>
+			<div class="table-cell"><strong>Percentage</strong></div>
+			<div class="table-cell"><strong>Delete</strong> </div>
+		</div>
+		<%for (var record of data){ %>
+		<a href="/event-edit/<%=record.id%>">
+		<div class="table-row">
+				<a href="/event-edit/<%=record.id%>">
+					<div class="table-cell"><%=record.id%></div>
+					<div class="table-cell"><%=record.marks1%></div>
+					<div class="table-cell"><%=record.marks2%></div>
+					<div class="table-cell"><%=record.marks3%></div>
+					<div class="table-cell"><%=record.percentage%></div>
+					<div class="table-cell"><a href="/event-delete/<%=record.id%>">X</a></div>
+				</a>
+		</div>
+				
+			<% }%>
+	</div>
+	</body>
+</html>
